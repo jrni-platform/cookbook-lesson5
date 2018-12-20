@@ -34,6 +34,18 @@ class RingsCtrl {
             this.rings  = parseInt(rings);
         });
     }
+
+    give_rings(num){
+        this.client.setAnswer('rings', this.rings+ num);
+        this.client.$update().then( (client) => {
+            // gave rings
+            this.client.getAnswer('rings').then( (rings) => {
+                this.rings  = parseInt(rings);
+            });
+        }, (err) => {
+            //failed to give rings
+        });
+    }
 }
 
 const ringsPanel = {

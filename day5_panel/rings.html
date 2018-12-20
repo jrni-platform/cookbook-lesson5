@@ -1,2 +1,9 @@
 <h3>{{$ctrl.client.name}}'s Rings</h3>
 <br/>
+<a class="btn btn-primary" ng-click="$ctrl.give_rings(5)">Give 5 rings</a>
+<br/>
+<ul>
+  <li class="pull-left" ng-repeat="x in [].constructor($ctrl.rings) track by $index">
+    <img width="50px" src='https://content.beaverbrooks.co.uk/medias/0004985-0-ListerX?context=bWFzdGVyfGltYWdlc3w5Njg3fGltYWdlL2pwZWd8aW1hZ2VzL2hmYS9oNDcvODk4MTgzOTcwODE5MC5qcGd8MDIwMzFhZDE1ZjhhMGM2MDJjNDk3NGFjMjJlY2QwMmViNTMyNGJjNGZmYTIwOTQ5MThlYTk0NGQyNTgzYTY2Nw'/>
+  </li>
+</ul> 
