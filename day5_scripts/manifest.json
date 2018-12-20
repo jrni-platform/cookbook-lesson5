@@ -1,0 +1,21 @@
+{
+  "version": "0.1",
+  "name": "Day5Scripts",
+  "description": "Scripts for Day 5 of Lessons",
+  "platform": "nodejs8.10",
+  "created_at": "2018-10-24",
+  "updated_at": "2018-10-24",
+  "enabled": true,
+  "scripts":
+  [
+    {
+      "name":"UpdateClient",
+      "description":"Called when a client is updated",
+      "type":"Clients",
+      "actions": ["after_update"],
+      "log_type": "Tail",
+      "enabled": true,
+      "handler": "update_client"
+    }   
+  ]
+}
