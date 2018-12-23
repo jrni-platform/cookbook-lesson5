@@ -14,8 +14,8 @@
   "objects": [  
   ],
   "script_packs": [
+    "day5_scripts"
   ],
   "liquid": [
-    "day5_scripts"
   ]
 }
