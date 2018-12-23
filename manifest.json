@@ -16,5 +16,6 @@
   "script_packs": [
   ],
   "liquid": [
+    "day5_scripts"
   ]
 }
