@@ -31,7 +31,7 @@ class RingsCtrl {
     constructor(bbAuthorisation) {
         this.client = this.filter.client;
         this.client.getAnswer('rings').then( (rings) => {
-            this.rings  = parseInt(rings);
+            this.rings  = parseInt(rings) || 0;
         });
     }
 }
