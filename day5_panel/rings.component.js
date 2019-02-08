@@ -30,9 +30,13 @@ Configurator.addNamedTab('client_profile', {
 class RingsCtrl {
     constructor(bbAuthorisation) {
         this.client = this.filter.client;
-        this.client.getAnswer('rings').then( (rings) => {
-            this.rings  = parseInt(rings);
-        });
+
+        this.getRings();
+    }
+    async getRings() {
+        // get the rings = this users a promise/async call as it might ahve to look up a question name
+        const rings = await this.client.getAnswer('rings');
+        this.rings  = parseInt(rings);
     }
 }
 

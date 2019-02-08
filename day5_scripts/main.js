@@ -1,11 +1,11 @@
 
-exports.update_client = function(data, callback){
+exports.update_client = async function(data, callback){
 
   const client = data.client;
   
-  client.getAnswer('rings').then( (rings) => {
-    console.log(client.name, " now has ", rings, " rings");
-  })
+  const rings = await client.getAnswer('rings');
+
+  console.log(client.name, " now has ", rings, " rings");
 
   callback(null, {});
 }
