@@ -36,7 +36,7 @@ class RingsCtrl {
     async getRings() {
         // get the rings = this users a promise/async call as it might ahve to look up a question name
         const rings = await this.client.getAnswer('rings');
-        this.rings  = parseInt(rings);
+        this.rings  = parseInt(rings || 0);
     }
 }
 
