@@ -161,7 +161,7 @@ var RingsCtrl = function () {
                         case 2:
                             rings = _context.sent;
 
-                            this.rings = parseInt(rings);
+                            this.rings = parseInt(rings || 0);
 
                         case 4:
                         case 'end':
@@ -176,6 +176,37 @@ var RingsCtrl = function () {
         }
 
         return getRings;
+    }();
+
+    RingsCtrl.prototype.give_rings = function () {
+        var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(num) {
+            return regeneratorRuntime.wrap(function _callee2$(_context2) {
+                while (1) {
+                    switch (_context2.prev = _context2.next) {
+                        case 0:
+                            // set the answer
+                            this.client.setAnswer('rings', this.rings + num);
+                            // update rings
+                            _context2.next = 3;
+                            return this.client.$update();
+
+                        case 3:
+                            // update the local ring count
+                            this.getRings();
+
+                        case 4:
+                        case 'end':
+                            return _context2.stop();
+                    }
+                }
+            }, _callee2, this);
+        }));
+
+        function give_rings(_x) {
+            return _ref2.apply(this, arguments);
+        }
+
+        return give_rings;
     }();
 
     return RingsCtrl;
@@ -199,7 +230,7 @@ angular.module('BBAdminDashboard').component('bbRingsPanel', ringsPanel);
 var angular=window.angular,ngModule;
 try {ngModule=angular.module(["ng"])}
 catch(e){ngModule=angular.module("ng",[])}
-var v1="<h3>{{$ctrl.client.name}}'s Rings</h3>\n<br/>";
+var v1="<h3>{{$ctrl.client.name}}'s Rings</h3>\n<br/>\n<a class=\"btn btn-primary\" ng-click=\"$ctrl.give_rings(5)\">Give 5 rings</a>\n<br/>\n<ul>\n<li class=\"pull-left\" ng-repeat=\"x in [].constructor($ctrl.rings) track by $index\">\n<img width=\"50px\" src=\"https://content.beaverbrooks.co.uk/medias/0004985-0-ListerX?context=bWFzdGVyfGltYWdlc3w5Njg3fGltYWdlL2pwZWd8aW1hZ2VzL2hmYS9oNDcvODk4MTgzOTcwODE5MC5qcGd8MDIwMzFhZDE1ZjhhMGM2MDJjNDk3NGFjMjJlY2QwMmViNTMyNGJjNGZmYTIwOTQ5MThlYTk0NGQyNTgzYTY2Nw\"/>\n</li>\n</ul>\n";
 var id1="day5/rings.html";
 var inj=angular.element(window.document).injector();
 if(inj){inj.get("$templateCache").put(id1,v1);}

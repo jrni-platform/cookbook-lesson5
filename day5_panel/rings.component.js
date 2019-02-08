@@ -36,19 +36,16 @@ class RingsCtrl {
     async getRings() {
         // get the rings = this users a promise/async call as it might ahve to look up a question name
         const rings = await this.client.getAnswer('rings');
-        this.rings  = parseInt(rings);
+        this.rings  = parseInt(rings || 0);
     }
 
-    give_rings(num){
+    async give_rings(num){
+        // set the answer
         this.client.setAnswer('rings', this.rings+ num);
-        this.client.$update().then( (client) => {
-            // gave rings
-            this.client.getAnswer('rings').then( (rings) => {
-                this.rings  = parseInt(rings);
-            });
-        }, (err) => {
-            //failed to give rings
-        });
+        // update rings
+        await this.client.$update();
+        // update the local ring count
+        this.getRings();
     }
 }
 
